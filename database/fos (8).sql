@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 09:37 AM
+-- Generation Time: Apr 03, 2024 at 05:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -34,13 +34,6 @@ CREATE TABLE `cart` (
   `product_id` int(30) NOT NULL,
   `qty` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `client_ip`, `user_id`, `product_id`, `qty`) VALUES
-(0, '', 8, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -73,24 +66,24 @@ CREATE TABLE `employee` (
   `emp_id` int(11) DEFAULT NULL,
   `emp_name` varchar(100) NOT NULL,
   `emp_number` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `emp_salary` varchar(100) NOT NULL,
+  `emp_role` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_number`, `email`) VALUES
-(1, 'marumitha', '9897212110', 'marumitha67@gmail.com'),
-(2, 'prabha', '6383786437', 'viperprabhakaran@gmail.com'),
-(3, 'mala', '707621110', 'mala@gmail.com'),
-(4, 'dewin', '9897121032', 'dewin@gmail.com'),
-(5, 'karan', '6321121098', 'pk1234@gmail.com'),
-(6, 'janani', '9896121043', 'jananij2020@gmail.com'),
-(7, 'siva', '8786121098', 'siva@gmail.com'),
-(8, 'mani', '7876541210', 'mani@gmail.com'),
-(9, 'roshi', '7865134210', 'roshi@gmail.com'),
-(10, 'priya', '6382786347', 'priya@gmail.com');
+INSERT INTO `employee` (`emp_id`, `emp_name`, `emp_number`, `email`, `emp_salary`, `emp_role`) VALUES
+(1, 'marumitha', '9897121210', 'marumitha67@gmail.com', '38000', 'Manager'),
+(2, 'prabhakaran', '6383786437', 'viperprabhakaran@gmail.com', '20000', 'supplier'),
+(3, 'mani', '7898951210', 'mani@gmail.com', '18000', 'supplier'),
+(4, 'dewin', '9097651210', 'dewin@gmail.com', '14000', 'assistant supplier'),
+(5, 'siva', '9801012130', 'siva@gmail.com', '18000', 'assistant supplier'),
+(6, 'priya', '9897121298', 'priya@gmail.com', '18000', 'assistant supplier'),
+(7, 'dharshini', '6383781098', 'dharshini@gmail.com', '20000', 'supplier'),
+(8, 'janani', '7865121210', 'jananij2020@gmail.com', '20000', 'supplier');
 
 -- --------------------------------------------------------
 
@@ -124,7 +117,11 @@ INSERT INTO `orders` (`id`, `name`, `address`, `mobile`, `email`, `status`, `tra
 (150, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 1, 'vaigai express', 300),
 (151, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 1, 'vaigai express', 350),
 (152, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 350),
-(153, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 300);
+(153, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 300),
+(154, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 220),
+(155, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 300),
+(156, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 350),
+(157, 'prabha pk', '11,sedan kinatru street thiruthangal\r\n', '6383786437', 'viperprabhakaran@gmail.com', 0, 'vaigai express', 200);
 
 -- --------------------------------------------------------
 
@@ -247,7 +244,12 @@ INSERT INTO `order_list` (`id`, `order_id`, `product_id`, `qty`) VALUES
 (101, 150, 16, 1),
 (102, 151, 11, 1),
 (103, 152, 11, 1),
-(104, 153, 17, 1);
+(104, 153, 17, 1),
+(105, 154, 16, 1),
+(106, 154, 20, 3),
+(107, 155, 17, 1),
+(108, 156, 11, 1),
+(109, 157, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -452,13 +454,13 @@ ALTER TABLE `category_list`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `product_list`
