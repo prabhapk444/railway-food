@@ -106,7 +106,7 @@ Class Action {
 
 		}
 		
-		// echo "INSERT INTO system_settings set ".$data;
+	
 		$chk = $this->db->query("SELECT * FROM system_settings");
 		if($chk->num_rows > 0){
 			$save = $this->db->query("UPDATE system_settings set ".$data." where id =".$chk->fetch_array()['id']);

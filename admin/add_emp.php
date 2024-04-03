@@ -7,18 +7,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emp_name = $_POST['emp_name'];
         $emp_number = $_POST['emp_number'];
         $emp_mail=$_POST['email'];
+        $emp_salary=$_POST['salary'];
+        $emp_role=$_POST['role'];
 
-        $sql = "INSERT INTO employee (emp_id, emp_name, emp_number,email) VALUES ('$emp_id', '$emp_name', '$emp_number','$emp_mail')";
+        $sql = "INSERT INTO employee (emp_id, emp_name, emp_number,email,emp_salary,emp_role) VALUES ('$emp_id', '$emp_name', '$emp_number','$emp_mail','$emp_salary','$emp_role')";
 
         if ($conn->query($sql) === TRUE) {
-            // echo "New Employee Added: ID - $emp_id, Name - $emp_name, Number - $emp_number";
-            header("Location: index.php"); // Redirect to index.php after adding an employee
+         
+            header("Location: index.php"); 
             exit();
         } else {
             echo "Error adding employee: " . $conn->error;
         }
     } else {
-        // echo "One or more form fields are empty.";
+     
     }
 
     $conn->close();

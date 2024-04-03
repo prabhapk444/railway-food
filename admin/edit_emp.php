@@ -6,8 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emp_name = $_POST['update_emp_name'];
         $emp_number = $_POST['update_emp_number'];
         $email=$_POST['email'];
+        $emp_salary=$_POST['salary'];
+        $emp_role=$_POST['role'];
 
-        $sql = "UPDATE employee SET emp_name='$emp_name', emp_number='$emp_number',email='$email' WHERE emp_id='$emp_id'";
+        $sql = "UPDATE employee SET emp_name='$emp_name', emp_number='$emp_number',email='$email',emp_salary='$emp_salary',emp_role='$emp_role' WHERE emp_id='$emp_id'";
 
         if ($conn->query($sql) === TRUE) {
             // echo "Employee Updated: ID - $emp_id, Name - $emp_name, Number - $emp_number";

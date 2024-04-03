@@ -50,6 +50,14 @@
               <label for="emp_number">Employee Email:</label>
               <input type="text" class="form-control" id="email" name="email">
             </div>
+            <div class="form-group">
+              <label for="emp_number">Salary:</label>
+              <input type="text" class="form-control" id="salary" name="salary">
+            </div>
+            <div class="form-group">
+              <label for="emp_number">Designation</label>
+              <input type="text" class="form-control" id="role" name="role">
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary" id="saveEmployee">Save</button>
@@ -86,6 +94,14 @@
             <div class="form-group">
               <label for="emp_number">Employee Email:</label>
               <input type="text" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="emp_number">Salary:</label>
+              <input type="text" class="form-control" id="salary" name="salary">
+            </div>
+            <div class="form-group">
+              <label for="emp_number">Designation</label>
+              <input type="text" class="form-control" id="role" name="role">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -151,7 +167,7 @@
 <?php
 include 'db_connect.php';
 
-$users = $conn->query("SELECT  emp_id, emp_name, emp_number,email FROM employee");
+$users = $conn->query("SELECT  emp_id, emp_name, emp_number,email,emp_salary,emp_role FROM employee");
 
 if ($users === false) {
     die("Error executing the query: " . $conn->error);
@@ -171,24 +187,25 @@ if ($users === false) {
                 <table class="table table-striped table-bordered col-md-12">
                     <thead>
                         <tr>
-                            <th class="text-center">#</th>
                             <th class="text-center">Emp_id</th>
                             <th class="text-center">Emp_Name</th>
                             <th class="text-center">Emp_number</th>
                             <th class="text-center">Emp_Email</th>
-                            <!-- <th class="text-center">Destination</th>
-                            <th class="text-center">Time</th>
-                            <th clas="text-center">Date</th> -->
+                            <th class="text-center">Designation</th>
+                            <th class="text-center">Salary</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; while ($row = $users->fetch_assoc()): ?>
                             <tr>
-                                <td><?php echo $i++; ?></td>
+                                
                                 <td><?php echo $row['emp_id']; ?></td>
                                 <td><?php echo $row['emp_name']; ?></td>
                                 <td><?php echo $row['emp_number']; ?></td>
                                 <td><?php echo $row['email'];?></td>
+                                <td><?php echo $row['emp_role'];?></td>
+                                <td><?php echo $row['emp_salary'];?></td>
                              
                                     <center>
                                         <!-- <div class="btn-group">
